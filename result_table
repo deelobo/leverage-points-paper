@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leverage Points for Adaptation Planning</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f5f0;
+    --text1: #1a1a1a;
+    --text2: #5f5e5a;
+    --text3: #888780;
+    --border1: rgba(0,0,0,0.15);
+    --border2: rgba(0,0,0,0.3);
+    --info: #185FA5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a;
+      --bg2: #2c2c2a;
+      --text1: #e8e6df;
+      --text2: #b4b2a9;
+      --text3: #888780;
+      --border1: rgba(255,255,255,0.15);
+      --border2: rgba(255,255,255,0.3);
+      --info: #85B7EB;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text1);
+    padding: 24px 16px;
+    max-width: 860px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  h1 { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+  .caption { font-size: 11px; color: var(--text2); line-height: 1.5; margin-bottom: 16px; }
+  .mx { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .mx th, .mx td { padding: 6px 5px; text-align: center; vertical-align: middle; }
+  .mx th { font-weight: 500; font-size: 11px; color: var(--text2); }
+  .mx td:first-child { text-align: left; font-size: 12px; color: var(--text1); padding-left: 16px; padding-right: 8px; min-width: 220px; line-height: 1.35; cursor: pointer; }
+  .mx tbody tr.ec-row { border-bottom: 0.5px solid var(--border1); }
+  .mx tbody tr.ec-row:hover td:first-child { color: var(--info); }
+  .mx thead tr:last-child { border-bottom: 1px solid var(--border2); }
+  .lp-header td { font-weight: 500; font-size: 12px; color: var(--text1); padding-left: 0 !important; padding-top: 16px !important; padding-bottom: 2px !important; border-bottom: none !important; cursor: default !important; }
+  .lp-def td { padding: 0 0 6px 0 !important; border-bottom: none !important; cursor: default !important; }
+  .lp-def-text { font-size: 10px; color: var(--text3); font-style: italic; line-height: 1.4; }
+  .d { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .d-sc { background: #534AB7; } .d-tc { background: #0F6E56; } .d-rc { background: #D85A30; }
+  .d-p { background: #888780; } .d-f { background: #3B8BD4; } .d-d { background: #639922; } .d-i { background: #BA7517; }
+  .d-e { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid var(--border1); }
+  .sp { border-left: 2px solid var(--border2); }
+  .leg { margin: 12px 0 6px; font-size: 11px; color: var(--text2); line-height: 1.8; }
+  .leg-line { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .leg-i { display: flex; align-items: center; gap: 4px; }
+  .leg-d { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .q-row { display: none; }
+  .q-row.open { display: table-row; }
+  .q-row td { padding: 6px 5px 10px 32px !important; text-align: left !important; font-size: 11px; line-height: 1.5; border-bottom: 0.5px solid var(--border1); cursor: default !important; }
+  .qt { color: var(--text2); font-style: italic; margin-bottom: 6px; }
+  .lv { color: var(--text3); font-size: 10px; line-height: 1.45; margin-top: 4px; }
+  .lv-label { font-weight: 500; color: var(--text2); font-size: 10px; }
+  .caret { display: inline-block; width: 12px; font-size: 10px; color: var(--text3); transition: transform 0.15s; margin-right: 2px; }
+  .caret.open { transform: rotate(90deg); }
+  .hint { font-size: 11px; color: var(--text3); margin-bottom: 10px; }
+  .cite { font-size: 10px; color: var(--text3); margin-top: 20px; border-top: 0.5px solid var(--border1); padding-top: 12px; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<h1>Leverage points in organizational systems for adaptation planning</h1>
+<p class="caption">Enabling conditions, realm placement, associated barriers, illustrative levers, and representative participant quotes. Levers are interventions that study participants indicated as having helped or could help advance adaptation.</p>
+
+<div class="leg">
+  <div class="leg-line">
+    <span style="font-weight:500; margin-right: 2px;">Barriers:</span>
+    <span class="leg-i"><span class="leg-d" style="background:#534AB7"></span>Staff capacity (SC)</span>
+    <span class="leg-i"><span class="leg-d" style="background:#0F6E56"></span>Complexity of adaptation planning (TC)</span>
+    <span class="leg-i"><span class="leg-d" style="background:#D85A30"></span>Resistance to change (RC)</span>
+  </div>
+  <div class="leg-line">
+    <span style="font-weight:500; margin-right: 2px;">Realms:</span>
+    <span class="leg-i"><span class="leg-d" style="background:#888780"></span>Parameters (P)</span>
+    <span class="leg-i"><span class="leg-d" style="background:#3B8BD4"></span>Feedbacks (F)</span>
+    <span class="leg-i"><span class="leg-d" style="background:#639922"></span>Design (D)</span>
+    <span class="leg-i"><span class="leg-d" style="background:#BA7517"></span>Intent (I)</span>
+  </div>
+</div>
+<p class="hint">Click a row to reveal quote and levers</p>
+
+<table class="mx">
+  <thead>
+    <tr>
+      <th style="text-align:left">Enabling condition</th>
+      <th style="color:#534AB7">SC</th><th style="color:#0F6E56">TC</th><th style="color:#D85A30">RC</th>
+      <th class="sp" style="color:#888780">P</th><th style="color:#3B8BD4">F</th><th style="color:#639922">D</th><th style="color:#BA7517">I</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- STAFFING AND CAPACITY BUILDING -->
+    <tr class="lp-header"><td colspan="8">Staffing and Capacity Building</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The recruitment, retention, and development of personnel for adaptation work</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q1')">
+      <td><span class="caret" id="c1">&#9654;</span>Hiring, recruiting, and retention of personnel with relevant expertise and relational capital</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d-e"></span></td>
+      <td class="sp"><span class="d d-p"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q1"><td colspan="8">
+      <div class="qt">"We're understaffed and overburdened with a ton of projects — I have eleven positions I would like to fill within my organization" (P04)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Recruit personnel with relevant scientific expertise; Hire staff embedded in local and Indigenous communities; Engage external experts through contracts or consulting; Implement retention strategies to maintain institutional knowledge and community relationships</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q2')">
+      <td><span class="caret" id="c2">&#9654;</span>Training and development that meets adaptation planning needs</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d-e"></span></td>
+      <td class="sp"><span class="d d-p"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q2"><td colspan="8">
+      <div class="qt">"If you had more people with those skills, it would still take time. But if you can do it effectively with somebody who knows what they're doing, you might take less time, and it might be more effective" (FG)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Provide targeted training on adaptation planning methods and climate science; Offer training on cultural dimensions of climate impacts; Develop staff facilitation and participatory planning skills through workshops and exercises</div>
+    </td></tr>
+
+    <!-- FUNDING AND RESOURCING -->
+    <tr class="lp-header"><td colspan="8">Funding and Resourcing</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The availability and structure of financial support for adaptation planning and implementation</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q3')">
+      <td><span class="caret" id="c3">&#9654;</span>Flexible and dedicated funding to support operations across the adaptation cycle</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d-e"></span></td>
+      <td class="sp"><span class="d d-p"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q3"><td colspan="8">
+      <div class="qt">"However much money we would need to actually implement the plan and knowing that we would have that ahead of time — if that was the case you would have no problem with the other barriers, and people would come to the table" (P02)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Establish dedicated budget lines for climate adaptation work; Provide flexible, discretionary funding that practitioners can deploy adaptively; Ensure access to funds committed to plan implementation prior to planning; Allocate funds for community engagement and participation compensation</div>
+    </td></tr>
+
+    <!-- KNOWLEDGE MANAGEMENT -->
+    <tr class="lp-header"><td colspan="8">Knowledge Management</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The organizational processes through which information is acquired, integrated, and made usable for adaptation decisions</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q4')">
+      <td><span class="caret" id="c4">&#9654;</span>Knowledge management systems designed to integrate and translate information across disciplines and knowledge systems</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d-e"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d d-f"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q4"><td colspan="8">
+      <div class="qt">"We have all these great tools to look at how is this tree expected to do under climate change, how is its range expected to change — but how do you boil that down into something concrete that you can put into practice at the stand level" (P03)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Gaining access to and developing: climate-informed ecological projections; research on climate impacts to individual species; research on how human systems will respond to climate change; vulnerability assessments that integrate climate, ecological, and social factors; knowledge of cultural dimensions of species management; research synthesis products in interactive formats; evidence from concrete cases of adaptation successes and failures in comparable management contexts.</div>
+    </td></tr>
+
+    <!-- ORGANIZATIONAL LEARNING -->
+    <tr class="lp-header"><td colspan="8">Organizational Learning</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The capacity of an organization to systematically learn from its own actions and adjust accordingly</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q5')">
+      <td><span class="caret" id="c5">&#9654;</span>Monitoring and evaluation systems that track both management outcomes and plan implementation</td>
+      <td><span class="d-e"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d d-f"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q5"><td colspan="8">
+      <div class="qt">"Measures and evaluation are usually the last thing you look at and the piece that gets the least amount of attention in a plan, but also the piece that gets the least amount of resources" (P02)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Develop a monitoring and evaluation strategy with defined indicators, methods, and analytical frameworks; Establish periodic review cycles to assess implementation progress and inform plan revisions; Set predetermined thresholds that trigger changes in management approach; Maintain a queryable database of implemented adaptation projects</div>
+    </td></tr>
+
+    <!-- ORGANIZATIONAL AND JOB DESIGN -->
+    <tr class="lp-header"><td colspan="8">Organizational and Job Design</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">How roles, responsibilities, and work structures are formally configured within organizations</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q6')">
+      <td><span class="caret" id="c6">&#9654;</span>Dedicated positions, teams, and programs for climate adaptation within the organization</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d d-p"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q6"><td colspan="8">
+      <div class="qt">"I wish that there were more staff dedicated exclusively to thinking about climate change than it wasn't a collateral duty for most people because then they would have time to put in the thought and coordinate effort" (P06)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Create climate change coordinator positions; Establish dedicated adaptation teams; Develop programs that centralize adaptation expertise within the organization</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q7')">
+      <td><span class="caret" id="c7">&#9654;</span>Adaptation planning integrated into existing roles and responsibilities without adding burden or competing with mandated duties</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q7"><td colspan="8">
+      <div class="qt">"A key part of making climate adaptation work is having that climate adaptation be integrated into the other work, rather than it being a completely separate piece" (P15)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Incorporate adaptation considerations into existing management workflows; Align adaptation tasks with mandated responsibilities rather than adding them as separate duties.</div>
+    </td></tr>
+
+    <!-- PLANNING PROCESS DESIGN -->
+    <tr class="lp-header"><td colspan="8">Planning Process Design</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">How adaptation planning processes are structured, facilitated, and implemented</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q8')">
+      <td><span class="caret" id="c8">&#9654;</span>Participatory and inclusive planning, enhanced by cross-boundary engagement</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d d-f"></span></td><td><span class="d d-d"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q8"><td colspan="8">
+      <div class="qt">"You really need to have the backing of the folks highest on the decision making, but the involvement of the people who are actually on the ground to give the content and practical realities of the work itself" (P12)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Include cross-departmental participation and rightsholders and stakeholders; Involve both decision-making leadership and ground-level implementation staff; Build relationship-sustaining processes that generate ownership among implementers</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q9')">
+      <td><span class="caret" id="c9">&#9654;</span>Use of strategic foresight approaches in planning</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q9"><td colspan="8">
+      <div class="qt">"Thinking through actions under different scenarios — if we would do the same thing either way then that's great; if they are drastically different then we're gonna have to think about this more" (P02)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Apply scenario planning to consider management actions under contrasting climate futures; Use structured decision-making approaches to work through compounded uncertainty</div>
+    </td></tr>
+
+    <!-- ORGANIZATIONAL SENSEMAKING -->
+    <tr class="lp-header"><td colspan="8">Organizational Sensemaking</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The collective process through which groups interpret ambiguous information and construct shared understanding for action</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q10')">
+      <td><span class="caret" id="c10">&#9654;</span>Understanding existing management approaches as risk-bearing choices</td>
+      <td><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q10"><td colspan="8">
+      <div class="qt">"Even the things I'm doing have risks and weighing those against, or just allowing them to open their mind and think about some of the other risks and how that weighs against" (FG)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Hold discussions to surface the assumptions and risks embedded in current management practices; Reframe the status quo as a deliberate choice rather than a risk-free default</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q11')">
+      <td><span class="caret" id="c11">&#9654;</span>A shared adaptation language established at the onset of planning</td>
+      <td><span class="d-e"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q11"><td colspan="8">
+      <div class="qt">"One of the biggest benefits of our plan, it gave us some common language to talk about assisted migration, so we properly defined it" (P07)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Define key terms and concepts at the beginning of the planning process; Establish common terminology across disciplinary and organizational boundaries</div>
+    </td></tr>
+
+    <!-- LEADERSHIP AND GOVERNANCE -->
+    <tr class="lp-header"><td colspan="8">Leadership and Governance</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The leadership behaviors, governance structures, and institutional mechanisms that authorize and sustain adaptation work</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q12')">
+      <td><span class="caret" id="c12">&#9654;</span>Leadership support for adaptation planning</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q12"><td colspan="8">
+      <div class="qt">"Some [units of the organization] are not supported at all when they want to do climate adaptation work — it's not something that their leadership is supportive of" (P06)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Supervisors protect staff time for adaptation work; Leadership publicly endorses adaptation as an organizational priority; Leaders allocate budgets and resources toward adaptation activities</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q13')">
+      <td><span class="caret" id="c13">&#9654;</span>Institutional approval and oversight structures that afford practitioners sufficient discretion for adaptive decision making</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d d-f"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q13"><td colspan="8">
+      <div class="qt">"The easiest thing to do is business as usual because we have a script to read from — we have our policy and everything that matches up with that" (P07)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Formally adopt adaptation decision frameworks (e.g., Resist-Accept-Direct) that provide practitioners with bounded discretion for decision making</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q14')">
+      <td><span class="caret" id="c14">&#9654;</span>Staff commitment to adaptation — from individual champions to staff buy-in</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q14"><td colspan="8">
+      <div class="qt">"We were fortunate to have individuals who are interested in this and supportive of it — every [organizational unit] is going to be different" (P06)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Create a core planning team with committed members who have strong prior relationships across organizational levels and with external partners</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q15')">
+      <td><span class="caret" id="c15">&#9654;</span>Policy creation and reform to embed adaptation objectives into institutional mandates unambiguously</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q15"><td colspan="8">
+      <div class="qt">"Sometimes willingness is there, but until the organizational policies change, it's just hard to implement some of the things" (P01)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Update agency manuals and policy language to authorize adaptation actions; Align institutional mandates with climate adaptation objectives</div>
+    </td></tr>
+
+    <!-- ORGANIZATIONAL CULTURE -->
+    <tr class="lp-header"><td colspan="8">Organizational Culture</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The shared values, norms, and assumptions that shape behavior within an organization</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q16')">
+      <td><span class="caret" id="c16">&#9654;</span>A culture that values diversity of thought, knowledge, and experiences in planning</td>
+      <td><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q16"><td colspan="8">
+      <div class="qt">"You need some old people sometimes, you need some young people sometimes, but you need to have some breadth" (P21)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Include diverse disciplinary perspectives, career stages, and knowledge systems in planning</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q17')">
+      <td><span class="caret" id="c17">&#9654;</span>Willingness to prioritize relational investment</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q17"><td colspan="8">
+      <div class="qt">"We were lucky that one of the main project managers, when we said that [our concerns], took that to heart and kind of restructured their work plan" P(11)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Invest sustained time in building and maintaining trust-based relationships with communities and partner organizations; Compensate partners for their participation in planning processes</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q18')">
+      <td><span class="caret" id="c18">&#9654;</span>Recognizing adaptation work as intrinsic to professional identity and practice</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-i"></span></td>
+    </tr>
+    <tr class="q-row" id="q18"><td colspan="8">
+      <div class="qt">"I was hired as a climate change ecologist, and I've always said, I really can't wait till we get to the point where I'm just an ecologist, right? Because the climate piece is such an inherent part of the work that we do" (P13)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> -</div>
+    </td></tr>
+
+    <!-- EXTERNAL RELATIONS AND SOCIAL CAPITAL -->
+    <tr class="lp-header"><td colspan="8">External Relations and Social Capital</td></tr>
+    <tr class="lp-def"><td colspan="8"><span class="lp-def-text">The partnerships, coordination mechanisms, and relational networks that connect an organization to external actors</span></td></tr>
+
+    <tr class="ec-row" onclick="toggle('q19')">
+      <td><span class="caret" id="c19">&#9654;</span>Formal coordination mechanisms across partner organizations</td>
+      <td><span class="d d-sc"></span></td><td><span class="d-e"></span></td><td><span class="d d-rc"></span></td>
+      <td class="sp"><span class="d-e"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q19"><td colspan="8">
+      <div class="qt">"When you can start from a shared understanding, it saves a lot of time – because every time we're involved in a planning process like this, all the work we've been doing coordinating with [partner organization] it's a big time suck for us, and we're a very small organization, and it is a problem because other stuff that can get neglected." (P11)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Establish Memorandum of Understanding (MOU), Designate or establish boundary teams/organizations to convene and coordinate adaptation work across partner organizations</div>
+    </td></tr>
+
+    <tr class="ec-row" onclick="toggle('q20')">
+      <td><span class="caret" id="c20">&#9654;</span>Partnerships that expand internal capacity for adaptation planning</td>
+      <td><span class="d d-sc"></span></td><td><span class="d d-tc"></span></td><td><span class="d-e"></span></td>
+      <td class="sp"><span class="d d-p"></span></td><td><span class="d-e"></span></td><td><span class="d d-d"></span></td><td><span class="d-e"></span></td>
+    </tr>
+    <tr class="q-row" id="q20"><td colspan="8">
+      <div class="qt">"Some organizations might not have the upper level support, but might be interested in having those conversations and participating — maybe it's easier for individuals to participate in those workshops if they're not the ones having to put it on" (P18)</div>
+      <div class="lv"><span class="lv-label">Levers:</span> Leverage partners to deliver training and coordinate planning activities; Engage academic and nonprofit partners to fill expertise gaps; Partner-led planning to enable participation by organizations lacking internal support</div>
+    </td></tr>
+
+  </tbody>
+</table>
+
+<div class="cite">
+  <!-- Update with your citation -->
+  Source: [Author(s)], [Year]. [Paper title]. [Journal].
+</div>
+
+<script>
+function toggle(id) {
+  var q = document.getElementById(id);
+  var c = document.getElementById(id.replace('q','c'));
+  q.classList.toggle('open');
+  c.classList.toggle('open');
+}
+</script>
+</body>
+</html>
